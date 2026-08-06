@@ -5,7 +5,7 @@ type User struct{
 	Gecos string `yaml:"gecos"`
 }
 
-type CloudInit struct{
+type CloudConfig struct{
 	Users []User `yaml:"users"`
 }
 

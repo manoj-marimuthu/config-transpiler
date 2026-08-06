@@ -8,12 +8,12 @@ import (
 
 func TestUserConverter(t *testing.T){
 	tests := []struct{
-		in config.CloudInit
+		in config.CloudConfig
 		out config.Butane
 	}{
 		// test case 1
 		{
-			config.CloudInit{
+			config.CloudConfig{
 				[]config.User{
 					{Name:"example",Gecos:"example-Gecos"}, 
 					{Name:"example2", Gecos:"example-2-Gecos"},
@@ -30,7 +30,7 @@ func TestUserConverter(t *testing.T){
 		},
 		// test case 2
 		{
-			config.CloudInit{
+			config.CloudConfig{
 				[]config.User{
 					{Name: "example3",Gecos:""},
 				},
@@ -45,7 +45,7 @@ func TestUserConverter(t *testing.T){
 		},
 		// test case 3
 		{
-			config.CloudInit{},
+			config.CloudConfig{},
 			config.Butane{},
 		},
 	}
