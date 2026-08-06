@@ -1,0 +1,6 @@
+passwd:
+    users:
+        - name: foobar
+          gecos: Foo Bar. H
+        - name: barfoo
+          gecos: Bar Foo. I
