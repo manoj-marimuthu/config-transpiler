@@ -7,7 +7,7 @@ Currently implemented:
     - gecos
     - groups
     - shell
-    
+
 Planned:
     - groups section
     - systemd units
