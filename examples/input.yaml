@@ -3,5 +3,7 @@
 users:
   - name: foobar
     gecos: Foo Bar. H
+    groups: devs, bosses
   - name: barfoo
     gecos: Bar Foo. I
+    shell: /bin/bash

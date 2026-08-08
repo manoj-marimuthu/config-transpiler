@@ -5,8 +5,8 @@ Currently implemented:
 - users
     - name
     - gecos
-
-Planned:
-    - shell
     - groups
+    - shell
+Planned:
+    - groups section
     - systemd units

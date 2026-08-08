@@ -1,11 +1,13 @@
 package config
 
-type User struct{
+type CloudConfigUser struct{
 	Name string `yaml:"name"`
 	Gecos string `yaml:"gecos"`
+	Groups string `yaml:"groups"`
+	Shell string `yaml: "shell"`
 }
 
 type CloudConfig struct{
-	Users []User `yaml:"users"`
+	Users []CloudConfigUser `yaml:"users"`
 }
 
