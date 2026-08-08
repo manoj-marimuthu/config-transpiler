@@ -8,6 +8,6 @@ Currently implemented:
     - groups
     - shell
 
-Planned:
+- Planned
     - groups section
     - systemd units
