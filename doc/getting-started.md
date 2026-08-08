@@ -4,7 +4,7 @@ If you have followed the instructions in the project's ```README.md``` file,
 You will have successfully built the binary. Before using the tool,
 know that it supports only a subset.
 
-In Cloud-config, It supports a range of keys (see: [features](https://www.github.com/manoj-marimuthu/config-transpiler/blob/main/doc/supported-features.md). For example-
+In Cloud-config, It supports a range of keys (see: [features](https://www.github.com/manoj-marimuthu/config-transpiler/blob/main/doc/supported-features.md)). For example-
 
 ```yaml
 #cloud-config
