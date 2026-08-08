@@ -11,8 +11,7 @@ architecture, programming practices and design choices, I decided to build a pro
 ### Documentation and Examples
 
 To get started, checkout the [getting started](https://github.com/manoj-marimuthu/config-transpiler/blob/main/doc/getting-started.md)
-documentation under the ```doc``` directory. The directory also holds examples for reference in  
-[examples](https://github.com/manoj-marimuthu/config-transpiler/blob/main/doc/examples.md).
+documentation under the ```doc``` directory. The directory also holds examples for reference in [examples](https://github.com/manoj-marimuthu/config-transpiler/blob/main/doc/examples.md).
 
 ### Building guide
 
