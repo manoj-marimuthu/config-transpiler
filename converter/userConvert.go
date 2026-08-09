@@ -5,25 +5,25 @@ import (
 	"strings"
 )
 
-func  userConvert(in config.CloudConfig,out *config.Butane){
-	for _,user := range in.Users{
-		var groups []string 
+func userConvert(in config.CloudConfig, out *config.Butane) {
+	for _, user := range in.Users {
+		var groups []string
 		if user.Groups != "" {
 			groups = strings.Split(user.Groups, ",")
-			for i, group := range groups{
+			for i, group := range groups {
 				groups[i] = strings.TrimSpace(group)
 			}
 		}
 		butaneUser := config.ButaneUser{
-			Name : user.Name,
-			Gecos : user.Gecos,
+			Name:   user.Name,
+			Gecos:  user.Gecos,
 			Groups: groups,
-			Shell: strings.TrimSpace(user.Shell),
+			Shell:  strings.TrimSpace(user.Shell),
 		}
 		out.Passwd.Users = append(out.Passwd.Users, butaneUser)
 	}
 }
 
-func init(){
+func init() {
 	register(userConvert)
 }

@@ -1,5 +1,8 @@
 #cloud-config
 
+groups:
+  - devs
+  - bosses
 users:
   - name: foobar
     gecos: Foo Bar. H

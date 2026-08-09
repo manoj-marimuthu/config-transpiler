@@ -2,15 +2,14 @@ package main
 
 import (
 	"config-transpiler/config"
-	"config-transpiler/writer"
-	"config-transpiler/parser"
 	"config-transpiler/converter"
+	"config-transpiler/parser"
+	"config-transpiler/writer"
 	"fmt"
 	"os"
 )
 
-
-func main(){
+func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Please provide input and output yaml file names")
 		return
@@ -19,5 +18,5 @@ func main(){
 	var outfilename string = os.Args[2]
 	var cfg config.CloudConfig = parser.Parse(infilename)
 	bcfg := converter.Convert(cfg)
-	writer.Write(bcfg,outfilename)
+	writer.Write(bcfg, outfilename)
 }
