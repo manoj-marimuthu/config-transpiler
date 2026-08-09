@@ -1,3 +1,5 @@
+variant: flatcar
+version: 1.0.0
 passwd:
     users:
         - name: foobar
@@ -8,3 +10,6 @@ passwd:
         - name: barfoo
           gecos: Bar Foo. I
           shell: /bin/bash
+    groups:
+        - devs
+        - bosses
