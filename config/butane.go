@@ -7,9 +7,12 @@ type ButaneUser struct {
 	Shell  string   `yaml:"shell,omitempty"`
 }
 
+type ButanePasswdGroups struct{
+	Name string `yaml:"name"`
+}
 type Passwd struct {
 	Users []ButaneUser `yaml:"users"`
-	Groups []string `yaml:"groups"` 
+	Groups []ButanePasswdGroups `yaml:"groups"` 
 }
 
 type Butane struct {

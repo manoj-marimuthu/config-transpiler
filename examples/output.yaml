@@ -11,5 +11,5 @@ passwd:
           gecos: Bar Foo. I
           shell: /bin/bash
     groups:
-        - devs
-        - bosses
+        - name: devs
+        - name: bosses
