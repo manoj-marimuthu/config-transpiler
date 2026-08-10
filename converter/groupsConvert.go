@@ -7,7 +7,10 @@ import (
 
 func groupsConvert(in config.CloudConfig, out *config.Butane){
 	for _, group := range in.Groups{
-		out.Passwd.Groups = append(out.Passwd.Groups,group)
+		butanePasswdGroups := config.ButanePasswdGroups{
+			Name: group,
+		}
+		out.Passwd.Groups = append(out.Passwd.Groups,butanePasswdGroups)
 	}
 }
 
