@@ -10,4 +10,5 @@ users:
     shell: /bin/dash
   - name: barfoo
     gecos: Bar Foo. I
+    groups: devs
     shell: /bin/bash

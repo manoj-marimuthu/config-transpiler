@@ -2,6 +2,7 @@
 
 Currently implemented:
 
+- groups
 - users
     - name
     - gecos
@@ -9,5 +10,5 @@ Currently implemented:
     - shell
 
 - Planned
-    - groups section
+    - other parameters inside groups and users sections.
     - systemd units

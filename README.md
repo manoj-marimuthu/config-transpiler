@@ -1,44 +1,86 @@
 ## Config Transpiler
 
-A go transpiler that converts cloud-config YAML format into Butane YAML format.
+A config transpiler written in Go that converts cloud-config YAML files
+into Butane YAML files.
 
-### Why I built it ?
+## Motivation
 
-While exploring the projects for LFX 2026, I noticed CNCF's project "Flatcar container Linux:
-Cloud-Init to Butane YAML config transpiler". It was genuinely interesting, Hence To learn the 
-architecture, programming practices and design choices, I decided to build a prototype.
+This repository is a prototype for the project named ```CNCF - Flatcar Container Linux:
+Cloud-Init to Butane YAML config transpiler (2026 Term 3)``` which is under LFX 2026 fall term 
+program.
 
-### Documentation and Examples
+## Architecture
 
-To get started, checkout the [getting started](https://github.com/manoj-marimuthu/config-transpiler/blob/main/doc/getting-started.md)
-documentation under the ```doc``` directory. The directory also holds examples for reference in [examples](https://github.com/manoj-marimuthu/config-transpiler/blob/main/doc/examples.md).
+![Config Transpiler Architecture](./doc/images/config-transpiler-architecture.png)
 
-### Building guide
+After the work of the config transpiler, butane compiler can convert the output butane yaml file
+into an ignition file which can then be used for provisioning of a Flatcar Linux machine.
 
-To use the tool, clone this project using git and build the binary.
-```bash
-git clone https://www.github.com/manoj-marimuthu/config-transpiler.git
-cd config-transpiler
-go build -o config-transpiler
+## QEMU Validation
+
+1) config-transpiler converts cloud-config YAML file from examples into a butane format YAML file
+named ```output.yaml```
+
+![step-1](./doc/images/output-1.png)
+
+2) The output butane format YAML file is then used by the Butane compiler in another directory.
+
+![step-2](./doc/images/output-2.png)
+
+3) The ```config.ign``` is then used by QEMU for a Flatcar Image.
+
+![step-3](./doc/images/output-3.png)
+
+## Features supported
+
+Since this is a prototype, only a small subset of the features needed are supported.
+For more details : [Supported Features](./doc/supported-features.md)
+
+## Example usage
+
+Assume a cloud-config YAML file, that has the following contents:
+
+```yaml
+groups:
+    - devs
+    - bosses
+
+users:
+    - name: foobar
+      gecos: Foo B. Bar
+    - name: barfoo
+      gecos: Bar B. Foo
 ```
 
-To convert a cloud-config YAML file into Butane YAML file, run:
-```bash
-./config-transpiler input.yaml output.yaml
+It will be converted to:
+
+```yaml
+variant: flatcar
+version: 1.0.0
+passwd:
+    groups:
+        - devs
+        - bosses
+    users:
+        - name: foobar
+          gecos: Foo B. Bar  
+        - name: barfoo
+          gecos: Bar B. Foo 
 ```
 
-Reads ```input.yaml``` file and converts it to Butane YAML format and writes 
-it to ```output.yaml```. To learn more, checkout the documentation.
 
-### QEMU Validation
+## Using the CLI
 
-The prototype was test using a Flatcar image and QEMU. It followed the following pipeline
- 
-### Inspiration
+```bash
+./config-transpiler <input_file_name.yaml> <output_file_name.yaml>
+```
 
-The project uses programming styles and choices from:
+## Next Steps
 
-[container-linux-config-transpiler](https://www.github.com/flatcar/container-linux-config-transpiler)
+Checkout out the [Supported Features](./doc/supported-features.md) section for future plans.
+To quickly run the CLI, use the pre-written config files in examples section by running:
 
-I used the project structure, The idea of registering and using converter functions from here and will
-continue to do so. 
+```
+./config-transpiler examples/input.yaml <output_filename>
+```
+

@@ -1,41 +1,27 @@
 ## Getting Started
 
-If you have followed the instructions in the project's ```README.md``` file,
-You will have successfully built the binary. Before using the tool,
-know that it supports only a subset.
-
-In Cloud-config, It supports a range of keys (see: [features](https://www.github.com/manoj-marimuthu/config-transpiler/blob/main/doc/supported-features.md)). For example-
-
-```yaml
-#cloud-config
-
-users:
-    - name: foobar
-      gecos: Foo B. Bar
-    - name: barfoo
-      gecos: Bar B. Foo
-```
-
-So, The generated butane configuration file will have the ```passwd``` section that has the
-```users``` section. Each entry in the ```users``` section may contain the ```name``` and ```gecos```
-fields. So the converted format depends on the input's features. Hence we get:
-
-```yaml
-passwd:
-    users: 
-        - name: foobar
-          gecos: Foo B. Bar
-        - name: barfoo
-          gecos: Bar B. Foo
-```
-
-The point is, You can perform conversion but the scope of conversion depends on the features supported.
-### How to use the CLI ?
-
-To convert a cloud-config YAML file into a Butane YAML file, run:
+To get an executable run:
 
 ```bash
-./config-transpiler <input_file_name.yaml> <output_file_name.yaml>
+go build -o config-transpiler .
 ```
 
-If the input file cannot be read/found, the program exits with an error.
+You will now see an executable in your current directory. To run the executable:
+
+```bash
+./config-transpiler <input_file.yaml> <output_file.yaml>
+```
+
+Use filenames of your choice where the angular brackets are specified. If you do 
+not want an executable, use:
+
+```bash
+go run ./... <input_file.yaml> <output_file.yaml>
+```
+The project also involves a test suite which can run using:
+
+```bash
+go test ./converter
+```
+ All test files are inside the converter as of now. Beware that the config-transpiler
+does not support all the keys and sections as specified in the documentation of cloud-config yet.
