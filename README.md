@@ -30,6 +30,10 @@ To convert a cloud-config YAML file into Butane YAML file, run:
 Reads ```input.yaml``` file and converts it to Butane YAML format and writes 
 it to ```output.yaml```. To learn more, checkout the documentation.
 
+### QEMU Validation
+
+The prototype was test using a Flatcar image and QEMU. It followed the following pipeline
+ 
 ### Inspiration
 
 The project uses programming styles and choices from:

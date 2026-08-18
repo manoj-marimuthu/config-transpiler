@@ -7,6 +7,7 @@ passwd:
           groups:
             - devs
             - bosses
+          shell: /bin/dash
         - name: barfoo
           gecos: Bar Foo. I
           shell: /bin/bash

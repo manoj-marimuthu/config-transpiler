@@ -14,18 +14,16 @@ func TestUserConverter(t *testing.T) {
 		// test case 1
 		{
 			config.CloudConfig{
-				[]config.User{
-					{Name: "example", Gecos: "example-Gecos"},
-					{Name: "example2", Gecos: "example-2-Gecos"},
+				Users: []config.CloudConfigUser{
+					{Name: "example", Gecos: "example-Gecos",Shell:"/bin/bash"},
+					{Name: "example2", Gecos: "example-2-Gecos",Shell:"/bin/bash"},
 				},
 			},
 			config.Butane{
-				Variant:"flatcar",
-				version:"1.0.0",
-				config.Passwd{
-					[]config.User{
-						{Name: "example", Gecos: "example-Gecos"},
-						{Name: "example2", Gecos: "example-2-Gecos"},
+				Passwd: config.Passwd{
+					Users: []config.ButaneUser{
+						{Name: "example", Gecos: "example-Gecos", Shell:"/bin/bash"},
+						{Name: "example2", Gecos: "example-2-Gecos", Shell:"/bin/bash"},
 					},
 				},
 			},
@@ -33,16 +31,14 @@ func TestUserConverter(t *testing.T) {
 		// test case 2
 		{
 			config.CloudConfig{
-				[]config.User{
-					{Name: "example3", Gecos: ""},
+				Users: []config.CloudConfigUser{
+					{Name: "example3", Gecos: "",Shell:""},
 				},
 			},
 			config.Butane{
-				Variant:"flatcar",
-				Version:"1.0.0",
-				config.Passwd{
-					[]config.User{
-						{Name: "example3", Gecos: ""},
+				Passwd: config.Passwd{
+					Users: []config.ButaneUser{
+						{Name: "example3", Gecos: "",Shell:""},
 					},
 				},
 			},
@@ -50,17 +46,14 @@ func TestUserConverter(t *testing.T) {
 		// test case 3
 		{
 			config.CloudConfig{},
-			config.Butane{
-				Variant:"flatcar",
-				Version:"1.0.0",
-			},
+			config.Butane{},
 		},
 	}
 	for i, test := range tests {
 		var out config.Butane
 		userConvert(test.in, &out)
 		if !reflect.DeepEqual(out, test.out) {
-			t.Errorf("test %d, Expected: %+v Received: %+v \n", i, test.out, out)
+			t.Errorf("test %d, Expected: %+v Received: %+v \n \n", i, test.out, out)
 		}
 	}
 }
