@@ -8,11 +8,13 @@ passwd:
             - devs
             - bosses
           shell: /bin/dash
+          uid: 1004
         - name: barfoo
           gecos: Bar Foo. I
           groups:
             - devs
           shell: /bin/bash
+          uid: 1768
     groups:
         - name: devs
         - name: bosses

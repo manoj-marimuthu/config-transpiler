@@ -5,6 +5,7 @@ type CloudConfigUser struct {
 	Gecos  string `yaml:"gecos"`
 	Groups string `yaml:"groups"`
 	Shell  string `yaml: "shell"`
+	Uid int `yaml: "uid"`
 }
 
 type CloudConfig struct {
