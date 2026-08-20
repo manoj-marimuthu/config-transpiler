@@ -5,11 +5,13 @@ type ButaneUser struct {
 	Gecos  string   `yaml:"gecos,omitempty"`
 	Groups []string `yaml:"groups,omitempty"`
 	Shell  string   `yaml:"shell,omitempty"`
+	Uid int `yaml:"uid,omitempty"`
 }
 
 type ButanePasswdGroups struct{
 	Name string `yaml:"name"`
 }
+
 type Passwd struct {
 	Users []ButaneUser `yaml:"users"`
 	Groups []ButanePasswdGroups `yaml:"groups"` 
