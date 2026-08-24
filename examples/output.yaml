@@ -18,3 +18,31 @@ passwd:
     groups:
         - name: devs
         - name: bosses
+systemd:
+    units:
+        - name: cloud-init-runcmd-0.service
+          enabled: true
+          contents: |-
+            [Unit]
+            Description=cloud-init runcmd unit
+
+            [Service]
+            Type=oneshot
+            ExecStart=/bin/sh -c 'echo hello'
+
+            [Install]
+            WantedBy=multi-user.target
+            			
+        - name: cloud-init-runcmd-1.service
+          enabled: true
+          contents: |-
+            [Unit]
+            Description=cloud-init runcmd unit
+
+            [Service]
+            Type=oneshot
+            ExecStart=/bin/sh -c 'echo bye'
+
+            [Install]
+            WantedBy=multi-user.target
+            			

@@ -11,4 +11,5 @@ type CloudConfigUser struct {
 type CloudConfig struct {
 	Groups []string `yaml:"groups"`
 	Users []CloudConfigUser `yaml:"users"`
+	RunCmd []string `yaml:"runcmd"`
 }
