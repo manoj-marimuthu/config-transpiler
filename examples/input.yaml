@@ -1,5 +1,8 @@
 #cloud-config
 
+runcmd:
+  - echo hello
+  - echo bye
 groups:
   - devs
   - bosses

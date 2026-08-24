@@ -17,8 +17,19 @@ type Passwd struct {
 	Groups []ButanePasswdGroups `yaml:"groups"` 
 }
 
+type ButaneSystemdUnit struct{
+	Name string `yaml:"name"`
+	Enabled bool `yaml:"enabled"`
+	Contents string `yaml:"contents"`
+}
+
+type Systemd struct{
+	Units []ButaneSystemdUnit `yaml:"units"`
+}
+
 type Butane struct {
 	Variant string `yaml:"variant"`
 	Version string `yaml:"version"`
 	Passwd  Passwd `yaml:"passwd"`
+	Systemd Systemd `yaml:"systemd"`
 }
