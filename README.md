@@ -41,15 +41,25 @@ For more details : [Supported Features](./doc/supported-features.md)
 Assume a cloud-config YAML file, that has the following contents:
 
 ```yaml
-groups:
-    - devs
-    - bosses
+#cloud-config
 
+runcmd:
+  - echo hello
+  - echo bye
+groups:
+  - devs
+  - bosses
 users:
-    - name: foobar
-      gecos: Foo B. Bar
-    - name: barfoo
-      gecos: Bar B. Foo
+  - name: foobar
+    gecos: Foo Bar. H
+    groups: devs, bosses
+    shell: /bin/dash
+    uid: 1004
+  - name: barfoo
+    gecos: Bar Foo. I
+    groups: devs
+    shell: /bin/bash
+    uid: 1768
 ```
 
 It will be converted to:
@@ -58,14 +68,51 @@ It will be converted to:
 variant: flatcar
 version: 1.0.0
 passwd:
-    groups:
-        - devs
-        - bosses
     users:
         - name: foobar
-          gecos: Foo B. Bar  
+          gecos: Foo Bar. H
+          groups:
+            - devs
+            - bosses
+          shell: /bin/dash
+          uid: 1004
         - name: barfoo
-          gecos: Bar B. Foo 
+          gecos: Bar Foo. I
+          groups:
+            - devs
+          shell: /bin/bash
+          uid: 1768
+    groups:
+        - name: devs
+        - name: bosses
+systemd:
+    units:
+        - name: cloud-init-runcmd-0.service
+          enabled: true
+          contents: |-
+            [Unit]
+            Description=cloud-init runcmd unit
+
+            [Service]
+            Type=oneshot
+            ExecStart=/bin/sh -c 'echo hello'
+
+            [Install]
+            WantedBy=multi-user.target
+
+        - name: cloud-init-runcmd-1.service
+          enabled: true
+          contents: |-
+            [Unit]
+            Description=cloud-init runcmd unit
+
+            [Service]
+            Type=oneshot
+            ExecStart=/bin/sh -c 'echo bye'
+
+            [Install]
+            WantedBy=multi-user.target
+
 ```
 
 
