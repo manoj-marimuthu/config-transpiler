@@ -34,7 +34,8 @@ named ```output.yaml```
 ## Features supported
 
 Since this is a prototype, only a small subset of the features needed are supported.
-For more details : [Supported Features](./doc/supported-features.md)
+For more details : [Supported Features](./doc/supported-features.md). It explains field
+mappings and design decisions.
 
 ## Example usage
 
@@ -112,9 +113,7 @@ systemd:
 
             [Install]
             WantedBy=multi-user.target
-
 ```
-
 
 ## Using the CLI
 
@@ -122,12 +121,8 @@ systemd:
 ./config-transpiler <input_file_name.yaml> <output_file_name.yaml>
 ```
 
-## Next Steps
-
-Checkout out the [Supported Features](./doc/supported-features.md) section for future plans.
-To quickly run the CLI, use the pre-written config files in examples section by running:
+To quickly see the transpiler in action, use the pre-written config files in examples section by running:
 
 ```
 ./config-transpiler examples/input.yaml <output_filename>
 ```
-
