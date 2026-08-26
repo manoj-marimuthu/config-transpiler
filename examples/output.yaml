@@ -25,24 +25,40 @@ systemd:
           contents: |-
             [Unit]
             Description=cloud-init runcmd unit
-
             [Service]
             Type=oneshot
             ExecStart=/bin/sh -c 'echo hello'
-
             [Install]
             WantedBy=multi-user.target
-            			
         - name: cloud-init-runcmd-1.service
           enabled: true
           contents: |-
             [Unit]
             Description=cloud-init runcmd unit
-
             [Service]
             Type=oneshot
             ExecStart=/bin/sh -c 'echo bye'
-
             [Install]
             WantedBy=multi-user.target
-            			
+storage:
+    files:
+        - path: /etc/demo1.txt
+          mode: 420
+          contents:
+            inline: |
+                Hello from demo1.txt,
+                write_files test 1
+          user:
+            name: root
+          group:
+            name: root
+        - path: /etc/demo2.conf
+          mode: 493
+          contents:
+            inline: |
+                Hello from demo2.conf,
+                write_files test 2
+          user:
+            name: foobar
+          group:
+            name: devs

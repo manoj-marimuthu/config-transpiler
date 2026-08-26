@@ -3,9 +3,11 @@
 runcmd:
   - echo hello
   - echo bye
+
 groups:
   - devs
   - bosses
+
 users:
   - name: foobar
     gecos: Foo Bar. H
@@ -17,3 +19,18 @@ users:
     groups: devs
     shell: /bin/bash
     uid: 1768
+
+write_files:
+  - path: /etc/demo1.txt
+    content: |
+      Hello from demo1.txt,
+      write_files test 1
+    permissions: "0644"
+    owner: root:root
+
+  - path: /etc/demo2.conf
+    content: |
+      Hello from demo2.conf,
+      write_files test 2
+    permissions: "0755"
+    owner: foobar:devs

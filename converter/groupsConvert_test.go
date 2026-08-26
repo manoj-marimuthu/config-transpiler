@@ -6,10 +6,9 @@ import (
 	"testing"
 )
 
-
-func TestGroupsConvert(t *testing.T){
-	tests := []struct{
-		in config.CloudConfig
+func TestGroupsConvert(t *testing.T) {
+	tests := []struct {
+		in  config.CloudConfig
 		out config.Butane
 	}{
 		{
@@ -40,10 +39,10 @@ func TestGroupsConvert(t *testing.T){
 		},
 	}
 
-	for _, test := range tests{
+	for _, test := range tests {
 		var but config.Butane
-		groupsConvert(test.in,&but)
-		if !reflect.DeepEqual(test.out,but){
+		groupsConvert(test.in, &but)
+		if !reflect.DeepEqual(test.out, but) {
 			t.Errorf("Expected : %+v , Received : %+v for groupsConvert()", test.out, but)
 		}
 	}

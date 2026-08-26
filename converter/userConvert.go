@@ -19,7 +19,7 @@ func userConvert(in config.CloudConfig, out *config.Butane) {
 			Gecos:  user.Gecos,
 			Groups: groups,
 			Shell:  strings.TrimSpace(user.Shell),
-			Uid: user.Uid,
+			Uid:    user.Uid,
 		}
 		out.Passwd.Users = append(out.Passwd.Users, butaneUser)
 	}
