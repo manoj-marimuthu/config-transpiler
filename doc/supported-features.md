@@ -7,41 +7,41 @@
         <td>Translation</td>
     </tr>
     <tr>
-        <td>groups</td>
-        <td>passwd.groups</td>
+        <td>groups[]</td>
+        <td>passwd.groups[].name</td>
         <td>cloud-config accepts groups field as a list of strings while butane config needs it as a list of elements each with its
         own name key that stores the group name. This conversion is handled by the transpiler. </td>
     </tr>
     <tr>
-        <td>user.name</td>
-        <td>passwd.user.name</td>
+        <td>users[].name</td>
+        <td>passwd.users[].name</td>
         <td>direct</td>
     </tr>
     <tr>
-        <td>user.gecos</td>
-        <td>passwd.user.gecos</td>
+        <td>users[].gecos</td>
+        <td>passwd.users[].gecos</td>
         <td>direct</td>
     </tr>
     <tr>
-        <td>user.groups</td>
-        <td>passwd.user.groups</td>
+        <td>users[].groups</td>
+        <td>passwd.users[].groups[]</td>
         <td>cloud-config accepts it as a single string with commas separating each group names while butane config needs it as list in YAML.
         This conversion is handled by the transpiler.
         </td>
     </tr>
     <tr>
-        <td>user.shell</td>
-        <td>passwd.user.shell</td>
+        <td>users[].shell</td>
+        <td>passwd.users[].shell</td>
         <td>direct</td>    
     </tr>
     <tr>
-        <td>user.uid</td>
-        <td>passwd.user.uid</td>
+        <td>users[].uid</td>
+        <td>passwd.users[].uid</td>
         <td>direct</td>
     </tr>   
     <tr>
-        <td>runcmd</td>
-        <td>systemd.units</td>
+        <td>runcmd[]</td>
+        <td>systemd.units[]</td>
         <td>As per the documentation, butane config does not have a runcmd equivalent. To solve this, The transpiler uses a systemd unit for each
         command. The generated units are enabled and associated with multi-user.target. Each unit uses type as oneshot and the /bin/sh interpreter.</td>    
     </tr>
@@ -68,3 +68,6 @@
         handles this conversion by splitting the string and writing the corresponding fields in butane config structs.</td>
     </tr>
 </table>
+
+All the above features were tested end-to-end from the input cloud-config to butane config to an ignition file which was again verified by using the
+ignition configuration file to boot a Flatcar linux machine in QEMU.
