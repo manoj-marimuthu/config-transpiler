@@ -63,7 +63,7 @@
     <tr>
         <td>write_files[].owner</td>
         <td>storage.files[].user.name , storage.files[].group.name</td>
-        <td>in cloud-config, the write_files[].owner field is given as a string of the form <username>:<groupname> 
+        <td>in cloud-config, the write_files[].owner field is given as a string of the form username:groupname 
         whereas in butane config, it uses 2 separate fields to represent username and groupname as listed. The transpiler
         handles this conversion by splitting the string and writing the corresponding fields in butane config structs.</td>
     </tr>
