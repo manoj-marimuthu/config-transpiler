@@ -1,11 +1,12 @@
 package config
 
 type CloudConfigUser struct {
-	Name   string `yaml:"name"`
-	Gecos  string `yaml:"gecos"`
-	Groups string `yaml:"groups"`
-	Shell  string `yaml: "shell"`
-	Uid    int    `yaml: "uid"`
+	Name    string `yaml:"name"`
+	Gecos   string `yaml:"gecos"`
+	Groups  string `yaml:"groups"`
+	Shell   string `yaml: "shell"`
+	Uid     int    `yaml: "uid"`
+	HomeDir string `yaml: "homedir"`
 }
 
 type CloudConfigWriteFiles struct {

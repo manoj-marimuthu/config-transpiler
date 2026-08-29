@@ -1,11 +1,12 @@
 package config
 
 type ButaneUser struct {
-	Name   string   `yaml:"name"`
-	Gecos  string   `yaml:"gecos,omitempty"`
-	Groups []string `yaml:"groups,omitempty"`
-	Shell  string   `yaml:"shell,omitempty"`
-	Uid    int      `yaml:"uid,omitempty"`
+	Name     string   `yaml:"name"`
+	Gecos    string   `yaml:"gecos,omitempty"`
+	Groups   []string `yaml:"groups,omitempty"`
+	Shell    string   `yaml:"shell,omitempty"`
+	Uid      int      `yaml:"uid,omitempty"`
+	Home_Dir string   `yaml:"home_dir,omitempty"`
 }
 
 type ButanePasswdGroups struct {

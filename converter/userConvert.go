@@ -15,11 +15,12 @@ func userConvert(in config.CloudConfig, out *config.Butane) {
 			}
 		}
 		butaneUser := config.ButaneUser{
-			Name:   user.Name,
-			Gecos:  user.Gecos,
-			Groups: groups,
-			Shell:  strings.TrimSpace(user.Shell),
-			Uid:    user.Uid,
+			Name:     user.Name,
+			Gecos:    user.Gecos,
+			Groups:   groups,
+			Shell:    strings.TrimSpace(user.Shell),
+			Uid:      user.Uid,
+			Home_Dir: user.HomeDir,
 		}
 		out.Passwd.Users = append(out.Passwd.Users, butaneUser)
 	}
