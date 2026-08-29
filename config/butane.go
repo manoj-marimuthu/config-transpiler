@@ -6,7 +6,7 @@ type ButaneUser struct {
 	Groups   []string `yaml:"groups,omitempty"`
 	Shell    string   `yaml:"shell,omitempty"`
 	Uid      int      `yaml:"uid,omitempty"`
-	Home_Dir string   `yaml:"home_dir"`
+	Home_Dir string   `yaml:"home_dir,omitempty"`
 }
 
 type ButanePasswdGroups struct {
