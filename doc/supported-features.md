@@ -48,7 +48,9 @@
         <td>runcmd[]</td>
         <td>systemd.units[]</td>
         <td>As per the documentation, butane config does not have a runcmd equivalent. To solve this, The transpiler uses a systemd unit for each
-        command. The generated units are enabled and associated with multi-user.target. Each unit uses type as oneshot and the /bin/sh interpreter.</td>    
+        command. The generated units are enabled and associated with multi-user.target. Each unit uses type as oneshot.</td>    
+        As per cloud-config, runcmd takes multiple elements of strings / list of strings. The transpiler supports conversion of both. For a string,
+        it uses ExecStart = /bin/sh -c "<command>" and for a command passed as a list of strings (ex- [echo, hello]), it uses ExecStart =<command>.
     </tr>
     <tr>
         <td>write_files[].path</td> 
