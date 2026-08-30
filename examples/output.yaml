@@ -39,7 +39,17 @@ systemd:
             Description=cloud-init runcmd unit
             [Service]
             Type=oneshot
-            ExecStart=/bin/sh -c 'echo bye'
+            ExecStart=ls -l
+            [Install]
+            WantedBy=multi-user.target
+        - name: cloud-init-runcmd-2.service
+          enabled: true
+          contents: |-
+            [Unit]
+            Description=cloud-init runcmd unit
+            [Service]
+            Type=oneshot
+            ExecStart=echo hi
             [Install]
             WantedBy=multi-user.target
 storage:

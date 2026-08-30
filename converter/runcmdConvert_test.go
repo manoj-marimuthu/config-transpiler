@@ -13,9 +13,13 @@ func TestRunCmd(t *testing.T) {
 	}{
 		{
 			config.CloudConfig{
-				RunCmd: []string{
-					"echo hello",
-					"ls -l",
+				RunCmd: []config.CloudConfigRunCmd{
+					{
+						Command:"echo hello",
+					},
+					{
+						Args: []string{"ls","-l"},
+					},
 				},
 			},
 			config.Butane{
@@ -39,7 +43,7 @@ WantedBy=multi-user.target`,
 Description=cloud-init runcmd unit
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c 'ls -l'
+ExecStart=ls -l
 [Install]
 WantedBy=multi-user.target`,
 						},

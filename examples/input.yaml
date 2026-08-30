@@ -2,7 +2,8 @@
 
 runcmd:
   - echo hello
-  - echo bye
+  - [ls, -l]
+  - [echo, hi]
 
 groups:
   - devs
