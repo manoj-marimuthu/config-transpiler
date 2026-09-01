@@ -16,14 +16,14 @@ func TestUserConverter(t *testing.T) {
 			config.CloudConfig{
 				Users: []config.CloudConfigUser{
 					{Name: "example", Gecos: "example-Gecos", Shell: "/bin/bash", Uid: 1004, HomeDir: "/home/exampleHome"},
-					{Name: "example2", Gecos: "example-2-Gecos", Shell: "/bin/bash", Uid: 1023, HomeDir: "/home/example2Home"},
+					{Name: "example2", Gecos: "example-2-Gecos", Shell: "/bin/bash", Uid: 1023, HomeDir: "/home/example2Home", System: true},
 				},
 			},
 			config.Butane{
 				Passwd: config.Passwd{
 					Users: []config.ButaneUser{
 						{Name: "example", Gecos: "example-Gecos", Shell: "/bin/bash", Uid: 1004, Home_Dir: "/home/exampleHome"},
-						{Name: "example2", Gecos: "example-2-Gecos", Shell: "/bin/bash", Uid: 1023, Home_Dir: "/home/example2Home"},
+						{Name: "example2", Gecos: "example-2-Gecos", Shell: "/bin/bash", Uid: 1023, Home_Dir: "/home/example2Home", System: true},
 					},
 				},
 			},
@@ -32,13 +32,13 @@ func TestUserConverter(t *testing.T) {
 		{
 			config.CloudConfig{
 				Users: []config.CloudConfigUser{
-					{Name: "example3", Gecos: "", Shell: "", Uid: 2300, HomeDir: "/home/example3Home"},
+					{Name: "example3", Gecos: "", Shell: "", Uid: 2300, HomeDir: "/home/example3Home", System: false},
 				},
 			},
 			config.Butane{
 				Passwd: config.Passwd{
 					Users: []config.ButaneUser{
-						{Name: "example3", Gecos: "", Shell: "", Uid: 2300, Home_Dir: "/home/example3Home"},
+						{Name: "example3", Gecos: "", Shell: "", Uid: 2300, Home_Dir: "/home/example3Home", System: false},
 					},
 				},
 			},

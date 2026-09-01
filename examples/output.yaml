@@ -10,6 +10,7 @@ passwd:
           shell: /bin/dash
           uid: 1004
           home_dir: /home/foobarhome
+          system: true
         - name: barfoo
           gecos: Bar Foo. I
           groups:

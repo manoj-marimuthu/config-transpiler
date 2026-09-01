@@ -16,6 +16,7 @@ users:
     shell: /bin/dash
     uid: 1004
     homedir: /home/foobarhome
+    system: true
   - name: barfoo
     gecos: Bar Foo. I
     groups: devs

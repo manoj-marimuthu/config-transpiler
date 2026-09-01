@@ -21,6 +21,7 @@ func userConvert(in config.CloudConfig, out *config.Butane) {
 			Shell:    strings.TrimSpace(user.Shell),
 			Uid:      user.Uid,
 			Home_Dir: user.HomeDir,
+			System: user.System,
 		}
 		out.Passwd.Users = append(out.Passwd.Users, butaneUser)
 	}
