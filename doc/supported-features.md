@@ -45,6 +45,11 @@
         <td>direct</td>
     </tr>
     <tr>
+        <td>users[].system</td>
+        <td>passwd.users[].system</td>
+        <td>direct</td>
+    </tr>
+    <tr>
         <td>runcmd[]</td>
         <td>systemd.units[]</td>
         <td>As per the documentation, butane config does not have a runcmd equivalent. To solve this, The transpiler uses a systemd unit for each
