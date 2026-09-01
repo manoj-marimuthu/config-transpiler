@@ -7,6 +7,7 @@ type ButaneUser struct {
 	Shell    string   `yaml:"shell,omitempty"`
 	Uid      int      `yaml:"uid,omitempty"`
 	Home_Dir string   `yaml:"home_dir,omitempty"`
+	System   bool     `yaml:"system,omitempty"`
 }
 
 type ButanePasswdGroups struct {

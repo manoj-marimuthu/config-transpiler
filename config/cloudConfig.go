@@ -12,6 +12,7 @@ type CloudConfigUser struct {
 	Shell   string `yaml: "shell"`
 	Uid     int    `yaml: "uid"`
 	HomeDir string `yaml: "homedir"`
+	System  bool   `yaml: "system"`
 }
 
 type CloudConfigWriteFiles struct {
