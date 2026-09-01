@@ -14,7 +14,6 @@ users:
     gecos: Foo Bar. H
     groups: devs, bosses
     shell: /bin/dash
-    uid: 1004
     homedir: /home/foobarhome
     system: true
   - name: barfoo
