@@ -16,21 +16,6 @@ program.
 After the work of the config transpiler, butane compiler can convert the output butane yaml file
 into an ignition file which can then be used for provisioning of a Flatcar Linux machine.
 
-## QEMU Validation
-
-1) config-transpiler converts cloud-config YAML file from examples into a butane format YAML file
-named ```output.yaml```
-
-![step-1](./doc/images/output-1.png)
-
-2) The output butane format YAML file is then used by the Butane compiler in another directory.
-
-![step-2](./doc/images/output-2.png)
-
-3) The ```config.ign``` is then used by QEMU for a Flatcar Image.
-
-![step-3](./doc/images/output-3.png)
-
 ## Features supported
 
 Since this is a prototype, only a small subset of the features needed are supported.
